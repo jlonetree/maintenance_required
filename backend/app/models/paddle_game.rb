@@ -1,0 +1,2 @@
+class PaddleGame < ApplicationRecord
+end
