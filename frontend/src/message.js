@@ -6,10 +6,6 @@ document.addEventListener("DOMContentLoaded", () => {
     // fetch()
 })
 
-function renderMessage(message) {
-    console.log(message.text)
-    // createMessage(message)
-}
 
 function createMessage() {
     console.log("Create Message Works")
@@ -17,11 +13,6 @@ function createMessage() {
 
     const messageDisplay = document.createElement("div")
     messageDisplay.setAttribute("id", "message-display")
-    
-    const ul = document.createElement("ul")
-
-    const postMessage = document.createElement("li")
-    postMessage.innerText = `TrashyChan: Welcome to the ThunderDome`
 
     const inputArea = document.createElement("div")
     inputArea.setAttribute("class", "message-input")
@@ -38,10 +29,10 @@ function createMessage() {
     const postBtn = document.createElement("button")
     postBtn.className = 'bttn'
     postBtn.innerText = "Send"
-    
+
     messageForm.addEventListener("submit", event => {
         event.preventDefault()
-        
+
         let message = event.target[0].value
         // ul.append(message)
 
@@ -58,13 +49,84 @@ function createMessage() {
             })
         })
         .then(res => res.json())
-        // .then(data => console.log(data))
+        .then(data => data.text)
     })
 
     messageBoard.append(messageDisplay, inputArea)
-    messageDisplay.append(ul)
-    ul.append(postMessage)
     messageForm.append(messageInput, postBtn)
     inputArea.append(messageForm)
 
 }
+
+function renderMessage(message) {
+    console.log(message.text)
+    // createMessage(message)
+    const disMes = document.querySelector("#messages")
+
+    const br = document.createElement("br")
+
+    const textIn = document.createElement("li")
+    textIn.innerText = `${message.text}`
+
+    const updDiv = document.createElement("form")
+    updDiv.setAttribute("class", "update-message")
+
+    const updForm = document.createElement("input")
+    updForm.setAttribute("type", "text")
+    updForm.setAttribute("message", "message")
+    updForm.setAttribute("placeholder", "Enter message here")
+
+    const updBtn = document.createElement("button")
+    updBtn.innerText = "Update"
+
+    updDiv.addEventListener("submit", event => {
+        event.preventDefault()
+        console.log("click")
+
+        let text = event.target[0].value
+        fetch(messageUrl + message.id, {
+            method: "PATCH",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                "text": text
+            })
+        })
+        .then(res => res.json())
+        .then(data => {
+            textIn.innerText = `${data.text}`
+            const delBtn = document.createElement("button")
+            delBtn.innerText = "x"
+            delBtn.addEventListener("click", () => {
+                fetch(messageUrl + message.id, {
+                    method: "DELETE"
+                })
+                textIn.remove()
+            })
+            textIn.append(delBtn)
+            event.target.reset()
+        })
+    })
+
+    const delBtn = document.createElement("button")
+    delBtn.innerText = "x"
+    delBtn.addEventListener("click", () => {
+        fetch(messageUrl + message.id, {
+            method: "DELETE"
+        })
+        textIn.remove()
+    })
+
+    disMes.append(textIn, updDiv)
+    updDiv.append(updForm, updBtn)
+    textIn.append(delBtn)
+}
+
+// function openForm() {
+//     document.getElementById("updFrom").style.display = "block";
+//   }
+  
+//   function closeForm() {
+//     document.getElementById("updForm").style.display = "none";
+//   }

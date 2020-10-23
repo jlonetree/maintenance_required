@@ -24,12 +24,15 @@ class MessagesController < ApplicationController
   # PATCH/PUT /messages/1
   # PATCH/PUT /messages/1.json
   def update
-    
+    message = Message.find(params[:id])
+    message.update(message_params)
+    render json: message
   end
 
   # DELETE /messages/1
   # DELETE /messages/1.json
   def destroy
+    message = Message.find(params[:id])
     message.destroy
   end
 
