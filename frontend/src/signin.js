@@ -17,11 +17,13 @@ function createUsername() {
     form.setAttribute("class", "new-user-form")
 
     let usernameInput = document.createElement("input")
+    usernameInput.className = 'input-box'
     usernameInput.setAttribute("type", "text")
     usernameInput.setAttribute("username", "username")
     usernameInput.setAttribute("placeholder", "Please Enter Username")
 
     let subBtn = document.createElement("button")
+    subBtn.className = 'bttn'
     subBtn.innerText = "Continue"
 
     form.addEventListener("submit", event => {
