@@ -1,15 +1,16 @@
 const usernameUrl = "http://localhost:3000/usernames/"
 
 document.addEventListener("DOMContentLoaded", () => {
-    createUsername()
     fetch(usernameUrl).then(res => res.json()).then(usernames => usernames.forEach(username => renderUsername(username)))
+    createUsername()
 })
 
 function renderUsername(username){
-
+    
 }
 
 function createUsername() {
+
     let signIn = document.querySelector("#sign-in")
 
     let form = document.createElement("form")
@@ -25,9 +26,11 @@ function createUsername() {
 
     form.addEventListener("submit", event => {
 
-        console.log(event.target[0].value)
+        // console.log(event.target[0].value)
         event.preventDefault()
-        console.log("click")
+        // console.log("click")
+        let name = event.target[0].value
+        console.log(name)
 
         fetch(usernameUrl, {
             method: "POST",
@@ -36,7 +39,7 @@ function createUsername() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                "name": event.target[0].value
+                "name": name
             })
         })
         .then(res => res.json())

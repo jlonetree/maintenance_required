@@ -1,10 +1,10 @@
-document.addEventListener("DOMContentLoaded", () => {
-    clickProgress()
-})
+// document.addEventListener("DOMContentLoaded", () => {
+//     // clickProgress()
+// })
 
-function clickProgress() {
-    var window = window.getSelection(); 
-    window.addEventListener("click", () => {
+// function clickProgress() {
+//     var window = window.getSelection(); 
+//     window.addEventListener("click", () => {
         
-    })
-}
+//     })
+// }

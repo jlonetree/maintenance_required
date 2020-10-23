@@ -43,7 +43,7 @@ class UsernamesController < ApplicationController
   # DELETE /usernames/1
   # DELETE /usernames/1.json
   def destroy
-
+    username.destroy
   end
 
   private

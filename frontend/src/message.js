@@ -1,9 +1,15 @@
 const messageUrl = "http://localhost:3000/messages/"
 
 document.addEventListener("DOMContentLoaded", () => {
-    // fetch(messageUrl).then(res => res.json()).then(messages => console.log(messages))
+    fetch(messageUrl).then(res => res.json()).then(messages => messages.forEach(message => renderMessage(message)))
     createMessage()
+    // fetch()
 })
+
+function renderMessage(message) {
+    console.log(message.message)
+    // createMessage(message)
+}
 
 function createMessage() {
     console.log("Create Message Works")
@@ -14,11 +20,14 @@ function createMessage() {
     
     const ul = document.createElement("ul")
 
-    const username = document.createElement("li")
-    username.innerText = `TrashyChan:`
+    const postMessage = document.createElement("li")
+    postMessage.innerText = `TrashyChan: Welcome to the ThunderDome`
 
     const inputArea = document.createElement("div")
     inputArea.setAttribute("class", "message-input")
+
+    const messageForm = document.createElement("form")
+    messageForm.setAttribute("class", "message-form")
 
     let messageInput = document.createElement("input")
     messageInput.setAttribute("type", "text")
@@ -27,13 +36,31 @@ function createMessage() {
 
     const postBtn = document.createElement("button")
     postBtn.innerText = "Send"
-    postBtn.addEventListener("click", event => {
+    
+    messageForm.addEventListener("submit", event => {
         event.preventDefault()
+        
+        let message = event.target[0].value
+        console.log(message)
+
+        fetch(messageUrl, {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json",
+                "Accept": "application/json"
+            },
+            body: JSON.stringify({
+                "message": message
+            })
+        })
+        .then(res => res.json())
+        .then(data => console.log(data))
     })
 
     messageBoard.append(messageDisplay, inputArea)
     messageDisplay.append(ul)
-    ul.append(username)
-    inputArea.append(messageInput, postBtn)
+    ul.append(postMessage)
+    messageForm.append(messageInput, postBtn)
+    inputArea.append(messageForm)
 
 }
