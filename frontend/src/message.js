@@ -30,11 +30,13 @@ function createMessage() {
     messageForm.setAttribute("class", "message-form")
 
     let messageInput = document.createElement("input")
+    messageInput.className = 'input-box'
     messageInput.setAttribute("type", "text")
     messageInput.setAttribute("message", "message")
     messageInput.setAttribute("placeholder", "Enter message here")
 
     const postBtn = document.createElement("button")
+    postBtn.className = 'bttn'
     postBtn.innerText = "Send"
     
     messageForm.addEventListener("submit", event => {
