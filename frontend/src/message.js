@@ -13,7 +13,7 @@ function renderMessage(message) {
 
 function createMessage() {
     console.log("Create Message Works")
-    const messageBoard = document.querySelector("#message-board")
+    const messageBoard = document.querySelector(".message-board")
 
     const messageDisplay = document.createElement("div")
     messageDisplay.setAttribute("id", "message-display")
@@ -52,13 +52,9 @@ function createMessage() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-<<<<<<< HEAD
-                "text": message
-=======
                 "text": message,
                 "username_id": 1,
                 "message_board_id": 1
->>>>>>> jlonetree
             })
         })
         .then(res => res.json())

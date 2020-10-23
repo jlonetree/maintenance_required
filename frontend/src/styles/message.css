@@ -27,7 +27,7 @@ figure{
   }
   .slime{
     position: relative;
-    left: 0; bottom: -105px;
+    left: 0; bottom: -225px;
     width: 150px;
     height: 50px;
     background: coral;
@@ -53,6 +53,6 @@ figure{
     animation: sprite 4s infinite alternate;
   }
   @keyframes sprite {
-    from {  left: 0; top: 0; }
-    to {  left: 425px; top: 0; }
+    from {  left: 0; top: 0px; }
+    to {  left: 425px; top: 0px; }
   }
