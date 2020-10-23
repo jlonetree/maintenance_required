@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function renderMessage(message) {
-    console.log(message.message)
+    console.log(message.text)
     // createMessage(message)
 }
 
@@ -52,7 +52,7 @@ function createMessage() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                "message": message
+                "text": message
             })
         })
         .then(res => res.json())
