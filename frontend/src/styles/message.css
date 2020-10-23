@@ -1,0 +1,58 @@
+
+.bttn {
+    border: none;
+    border-radius: 3px;
+    padding: 15px 10px;
+    margin: 15px;
+    color: grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.bttn:hover {
+    background-color: gainsboro;
+    color: grey;
+}
+
+.input-box {
+    border: none;
+    border-radius: 3px;
+    padding: 10px 40px;
+    color: darkseagreen;
+}
+
+figure{
+    position: relative;
+    width: 200px; height: 100px;
+  
+  }
+  .slime{
+    position: relative;
+    left: 0; bottom: -105px;
+    width: 150px;
+    height: 50px;
+    background: coral;
+    color: white;
+    border-radius: 200px 200px 0px 0px;
+    text-align: center;
+    line-height: 100px;
+    animation: slime 0.5s infinite alternate;
+  }
+  @keyframes slime{
+    0% { 
+      border-radius: 200px 200px 50px 50px; 
+      height: 100px;
+    }
+    100% { 
+      border-radius: 220px 220px 30px 30px; 
+      height: 60px;
+      line-height: 80px;
+    }
+  }
+  
+  .sprite{
+    animation: sprite 4s infinite alternate;
+  }
+  @keyframes sprite {
+    from {  left: 0; top: 0; }
+    to {  left: 425px; top: 0; }
+  }
