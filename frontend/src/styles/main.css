@@ -1,4 +1,4 @@
-/* #canvas1 {
+#canvas1 {
     background-color: white;
     display: block;
     margin: 0 auto;
@@ -17,7 +17,7 @@
     display: block;
     margin: 0 auto;
     z-index: 2;
-} */
+}
 
 ul {
     list-style-type: none;
@@ -68,3 +68,91 @@ iframe {
   
   /* Change the background color of the dropdown button when the dropdown content is shown */
   .dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+  .form-container {
+    /* margin: 0;
+    padding: 0; */
+    width: 250px;
+    height: auto;
+    padding: 20px 30px;
+    background-color: darkseagreen;
+    color: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin: auto;
+    position: relative;
+}
+
+body {
+    background-color: honeydew;
+    padding-top: 30px;
+}
+
+
+.bttn {
+    border: none;
+    border-radius: 3px;
+    padding: 8px 5px;
+    margin: 15px;
+    color: grey;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+
+}
+
+.bttn:hover {
+    background-color: gainsboro;
+    color: darkgrey;
+}
+
+.input-box {
+    border: none;
+    border-radius: 3px;
+    padding: 10px 40px;
+    color: grey;
+}
+
+.input-box:hover {
+    background-color: gainsboro;
+}
+
+h1 {
+    color: white;
+    text-shadow: 2px 2px 4px grey;
+  }
+  
+  figure{
+    position: relative;
+    width: 200px; height: 100px;
+  
+  }
+  .slime{
+    position: absolute;
+    left: 0; bottom: -105px;
+    width: 150px;
+    height: 50px;
+    background: coral;
+    color: white;
+    border-radius: 200px 200px 0px 0px;
+    text-align: center;
+    line-height: 100px;
+    animation: slime 0.5s infinite alternate;
+  }
+  @keyframes slime{
+    0% { 
+      border-radius: 200px 200px 50px 50px; 
+      height: 100px;
+    }
+    100% { 
+      border-radius: 220px 220px 30px 30px; 
+      height: 60px;
+      line-height: 80px;
+    }
+  }
+  
+  .sprite{
+    animation: sprite 4s infinite alternate;
+  }
+  @keyframes sprite {
+    from {  left: 0; top: 0; }
+    to {  left: 425px; top: 0; }
+  }

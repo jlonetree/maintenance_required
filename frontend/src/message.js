@@ -41,7 +41,7 @@ function createMessage() {
         event.preventDefault()
         
         let message = event.target[0].value
-        console.log(message)
+        // ul.append(message)
 
         fetch(messageUrl, {
             method: "POST",

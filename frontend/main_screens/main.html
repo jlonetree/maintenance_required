@@ -3,43 +3,53 @@
 <!-- Brick Breaker game html -->
 <html>
   <head>
-    <link rel="stylesheet" type="text/css" href="../src/styles/main.css" />
-    <link rel="stylesheet" type="text/css" href="../src/styles/game.css" />
+    <link rel="stylesheet" type="text/css" href="../../styles/main.css" />
+    <link rel="stylesheet" type="text/css" href="../../styles/game.css" />
+    <script type="text/javascript" src="../../src/index.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
     
     <meta charset="utf-8" />
     <title>Maintenance Required</title>
 </head>
-<body>
-    <!-- <div class="dropdown">
-        <button class="dropbtn">Dropdown</button>
-        <div class="dropdown-content">
-          <a href="#">Link 1</a>
-          <a href="#">Link 2</a>
-          <a href="#" id="logout">Logout</a>
-        </div>
-      </div> -->
-      <center>
-    <iframe src="./sign_in.html" width="640" height="480"></iframe>
+  <body>
+    <iframe src="../../views/main_screens/sign_in.html" id="canvas1" width="640" height="480"></iframe>
     <!-- <canvas id="canvas1" width="640" height="480"></canvas> -->
-    <iframe src="./maintenance_required.html" width="640" height="480"></iframe>
+    <iframe src="../../views/main_screens/maintenance_required.html" id="canvas2" width="640" height="480"></iframe>
     <!-- <canvas id="canvas2" width="640" height="480"></canvas> -->
-    <iframe src="./message.html" width="640" height="480"></iframe>
+    <iframe src="../../views/main_screens/message.html" id="canvas3" width="640" height="480"></iframe>
     <!-- <canvas id="canvas3" width="640" height="480"></canvas> -->
-    
-        <div id="brick-breaker">
-            <h1>
-                Break
-            </h1>
-            <h1>
-                the Bricks
-            </h1>
+   
+    <div id="wrapper">
+      
+      <div class="game-item">
+        <center>
+        <div id ="Brick-breaker">
+          <h1>
+            Break
+          </h1>
+          <h1>
+            the Bricks
+          </h1>
         </div>
-        
-    </center>
-    <canvas id="canvas4" width="480" height="360"></canvas>
-    <h4>
-        As if you could beat those high scores... why are you even trying?
-    </h4>
-        <script type="text/javascript" src="../src/game.js"></script>
+      </center>
+          <canvas id="canvas4" width="480" height="320"></canvas>
+          <center><h4>As if you could beat those high scores...</h4></center>
+        </div>
+        <div class="score-item">
+          <center><span id="star" class="fa fa-star checked"></span>
+          <span class="heading"> Top Scores </span>
+          <span id="star" class="fa fa-star checked"></span></center>
+          <hr style="border:3px solid #f1f1f1">
+          <h3>Username.name  ---  username.score</h3>
+            <button class="btn"><i class="fa fa-frown-o"></i></button>
+
+        </div>
+      </div>
+
+      <script type="text/javascript" src="../../src/game.js"></script>
   </body>
+  
+    <!-- <canvas id="score-container" width="180" height="220" style="color:coral" > </canvas> -->
 </html>
