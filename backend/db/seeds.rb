@@ -30,16 +30,16 @@ usernames.each {| user | Username.create!(user)}
 MessageBoard.create!(name: "message_board")
 
 messages = [
-    {message: "Hey, don't do that", username_id: Username.first.id, message_board_id: MessageBoard.first.id},
-    {message: "Stop spamming messages", username_id: Username.third.id, message_board_id: MessageBoard.first.id},
-    {message: "Hey, look at this Noob, do they understand this is it, they should just leave", username_id: Username.last.id, message_board_id: MessageBoard.first.id},
-    {message: "You should really stop, there is no game, it's under maintenance!!!", username_id: Username.fourth.id, message_board_id: MessageBoard.first.id},
-    {message: "Alright, I hate this message board, I'm going to leave, PEACE!", username_id: Username.second.id, message_board_id: MessageBoard.first.id}
+    {text: "Hey, don't do that", username_id: Username.first.id, message_board_id: MessageBoard.first.id},
+    {text: "Stop spamming messages", username_id: Username.third.id, message_board_id: MessageBoard.first.id},
+    {text: "Hey, look at this Noob, do they understand this is it, they should just leave", username_id: Username.last.id, message_board_id: MessageBoard.first.id},
+    {text: "You should really stop, there is no game, it's under maintenance!!!", username_id: Username.fourth.id, message_board_id: MessageBoard.first.id},
+    {text: "Alright, I hate this message board, I'm going to leave, PEACE!", username_id: Username.second.id, message_board_id: MessageBoard.first.id}
 ]
 
 messages.each do | m | 
     puts m[:user]
-    Message.create!(message: m[:message], username_id: m[:username_id], message_board_id: m[:message_board_id])
+    Message.create!(text: m[:text], username_id: m[:username_id], message_board_id: m[:message_board_id])
 end
 # Message.create!(message: "Hey, don't do that", user: Username.first, message_board_id: MessageBoard.first.id)
 

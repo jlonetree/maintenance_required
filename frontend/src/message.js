@@ -7,7 +7,7 @@ document.addEventListener("DOMContentLoaded", () => {
 })
 
 function renderMessage(message) {
-    console.log(message.message)
+    console.log(message.text)
     // createMessage(message)
 }
 
@@ -50,11 +50,13 @@ function createMessage() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
-                "message": message
+                "text": message,
+                "username_id": 1,
+                "message_board_id": 1
             })
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
     })
 
     messageBoard.append(messageDisplay, inputArea)
