@@ -4,7 +4,7 @@ class MessageBoardsController < ApplicationController
   # GET /message_boards
   # GET /message_boards.json
   def index
-    @message_boards = MessageBoard.all
+    message_boards = MessageBoard.all
   end
 
   # GET /message_boards/1

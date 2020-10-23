@@ -25,54 +25,38 @@ usernames = [
     {name: "Vv_360NoScopeGenius_vV"}
 ]
 
-usernames.each {| user | Username.create(user)}
+usernames.each {| user | Username.create!(user)}
+
+MessageBoard.create!(name: "message_board")
 
 messages = [
-    {message: "Hey, don't do that", user_id: Username.first.id},
-    {message: "Stop spamming messages", user_id: Username.third.id},
-    {message: "Hey, look at this Noob, do they understand this is it, they should just leave", user_id: Username.last.id},
-    {message: "You should really stop, there is no game, it's under maintenance!!!", user_id: Username.fourth.id},
-    {message: "Alright, I hate this message board, I'm going to leave, PEACE!", user_id: Username.second.id}
+    {message: "Hey, don't do that", username_id: Username.first.id, message_board_id: MessageBoard.first.id},
+    {message: "Stop spamming messages", username_id: Username.third.id, message_board_id: MessageBoard.first.id},
+    {message: "Hey, look at this Noob, do they understand this is it, they should just leave", username_id: Username.last.id, message_board_id: MessageBoard.first.id},
+    {message: "You should really stop, there is no game, it's under maintenance!!!", username_id: Username.fourth.id, message_board_id: MessageBoard.first.id},
+    {message: "Alright, I hate this message board, I'm going to leave, PEACE!", username_id: Username.second.id, message_board_id: MessageBoard.first.id}
 ]
 
-messages.each {| message | Message.create(message)}
+messages.each do | m | 
+    puts m[:user]
+    Message.create!(message: m[:message], username_id: m[:username_id], message_board_id: m[:message_board_id])
+end
+# Message.create!(message: "Hey, don't do that", user: Username.first, message_board_id: MessageBoard.first.id)
 
-# message_boards = [
-#     {message_id: Message.first.id},
-#     {message_id: Message.second.id},
-#     {message_id: Message.third.id},
-#     {message_id: Message.fourth.id},
-#     {message_id: Message.fifth.id}
-# ]
+PaddleGame.create!(name: "brick attack")
 
-# message_boards.each {|message_board| MessageBoard.create(message_board)}
-
-PaddleGame.create(name: "brick attack")
+sb = ScoreBoard.create!(name: "scoreboard")
 
 scores = [
-    {score: 999, user_id: Username.first.id, paddle_game_id: PaddleGame.first.id},
-    {score: 998, user_id: Username.second.id, paddle_game_id: PaddleGame.first.id},
-    {score: 997, user_id: Username.third.id, paddle_game_id: PaddleGame.first.id},
-    {score: 995, user_id: Username.fourth.id, paddle_game_id: PaddleGame.first.id},
-    {score: 990, user_id: Username.fifth.id, paddle_game_id: PaddleGame.first.id},
-    {score: 989, user_id: Username.all[5].id, paddle_game_id: PaddleGame.first.id},
-    {score: 980, user_id: Username.all[6].id, paddle_game_id: PaddleGame.first.id},
-    {score: 970, user_id: Username.all[7].id, paddle_game_id: PaddleGame.first.id},
-    {score: 969, user_id: Username.last.id, paddle_game_id: PaddleGame.first.id}
+    {score: 999, username_id: Username.first.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 998, username_id: Username.second.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 997, username_id: Username.third.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 995, username_id: Username.fourth.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 990, username_id: Username.fifth.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 989, username_id: Username.all[5].id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 980, username_id: Username.all[6].id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 970, username_id: Username.all[7].id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id},
+    {score: 969, username_id: Username.last.id, paddle_game_id: PaddleGame.first.id, score_board_id: sb.id}
 ]
 
-scores.each {| score | Score.create(score)}
-
-# score_boards = [
-#     {score_id: Score.first.id},
-#     {score_id: Score.second.id},
-#     {score_id: Score.third.id},
-#     {score_id: Score.fourth.id},
-#     {score_id: Score.fifth.id},
-#     {score_id: Score.all[5].id},
-#     {score_id: Score.all[6].id},
-#     {score_id: Score.all[7].id},
-#     {score_id: Score.last.id}
-# ]
-
-# score_boards.each {|scoreboard| ScoreBoard.create(scoreboard)}
+scores.each {| score | Score.create!(score)}
