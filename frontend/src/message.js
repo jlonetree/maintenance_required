@@ -52,11 +52,17 @@ function createMessage() {
                 "Accept": "application/json"
             },
             body: JSON.stringify({
+<<<<<<< HEAD
                 "text": message
+=======
+                "text": message,
+                "username_id": 1,
+                "message_board_id": 1
+>>>>>>> jlonetree
             })
         })
         .then(res => res.json())
-        .then(data => console.log(data))
+        // .then(data => console.log(data))
     })
 
     messageBoard.append(messageDisplay, inputArea)

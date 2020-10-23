@@ -15,6 +15,7 @@ class MessagesController < ApplicationController
 
   def create
     # byebug
+      # message = Message.new(:message message_params["message"], :username_id message_params["username_id"], :message_board_id message_params["message_board_id"])
       message = Message.new(message_params)
       message.save
       render json: message
@@ -40,6 +41,6 @@ class MessagesController < ApplicationController
 
     # Only allow a list of trusted parameters through.
     def message_params
-      params.require(:message).permit(:message, :username_id, :message_board_id)
+      params.require(:message).permit(:text, :username_id, :message_board_id)
     end
 end

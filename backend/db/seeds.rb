@@ -39,7 +39,7 @@ messages = [
 
 messages.each do | m | 
     puts m[:user]
-    Message.create!(message: m[:message], username_id: m[:username_id], message_board_id: m[:message_board_id])
+    Message.create!(text: m[:text], username_id: m[:username_id], message_board_id: m[:message_board_id])
 end
 # Message.create!(message: "Hey, don't do that", user: Username.first, message_board_id: MessageBoard.first.id)
 
